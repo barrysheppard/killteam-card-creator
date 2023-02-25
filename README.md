@@ -1,2 +1,2 @@
-# bloodbowl-card-creator
-Making custom cards for bloodbowl players
+# killteam-card-creator
+Making custom cards for Kill Team players
