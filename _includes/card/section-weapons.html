@@ -1,0 +1,160 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingThree">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseSevenFour"
+                aria-expanded="false" aria-controls="fightersCollapseSevenFour">
+                Operative Weapons
+            </button>
+        </h2>
+    </div>
+
+
+
+    <div class="collapse" id="fightersCollapseSevenFour">
+        <div class="card-body">
+            <div id="weaponblock">
+
+                <div class="mt-4">
+            
+    
+        <div class="card-body">
+
+            <input checked class="form-check-input" id="weaponblockEnabled" oninput="onAnyChange()" type="checkbox">
+            <label class="form-check-label" for="weaponblockEnabled">Add to card</label>
+
+            
+            <div class="card-header">
+                <h2 class="h5 mb-0">
+                        Weapon One
+                </h2>
+            </div>
+            <div class="form-group">
+                <label for="weapon1Name">Name</label>
+                <input class="form-control" type="text" id="weapon1Name" name="weapon1Name" value="Ranged Weapon" oninput="onAnyChange()">
+            </div>
+
+
+            <div class="form-group">
+                <label for="weapon1Text">Special Rules</label>
+                <input class="form-control" type="text" id="weapon1Text" name="weapon1Text" value="-" oninput="onAnyChange()">
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon1A">A</label>
+                        <input class="form-control" id="weapon1A" min="0" max="9" name="weapon1A"
+                            oninput="onAnyChange()" type="number" value="4">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon1S">WS/BS</label>
+                        <input class="form-control" id="weapon1S" min="0" max="8" name="weapon1S"
+                            oninput="onAnyChange()" type="number" value="3">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon1Hit">Dmg Hit</label>
+                        <input class="form-control" id="weapon1Hit" min="0" max="6" name="weapon1Hit"
+                            oninput="onAnyChange()" type="number" value="3">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon1Crit">Dmg Crit</label>
+                        <input class="form-control" id="weapon1Crit" min="0" max="6" name="weapon1Crit"
+                            oninput="onAnyChange()" type="number" value="3">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <fieldset class="form-group">
+                        <label for="weapon1Icon">Icon</label>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="weapon1Icon" oninput="onAnyChange()">
+                        </div>
+                      </fieldset>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="card-body">
+
+            <input checked class="form-check-input" id="weaponblock2Enabled" oninput="onAnyChange()" type="checkbox">
+            <label class="form-check-label" for="weaponblock2Enabled">Add to card</label>
+
+
+            <div class="card-header">
+                <h2 class="h5 mb-0">
+                        Weapon Two
+                </h2>
+            </div>
+            <div class="form-group">
+                <label for="weapon2Name">Name</label>
+                <input class="form-control" type="text" id="weapon2Name" name="weapon2Name" value="Melee Weapon" oninput="onAnyChange()">
+            </div>
+
+            <div class="form-group">
+                <label for="weapon2Text">Special Rules</label>
+                <input class="form-control" type="text" id="weapon2Text" name="weapon2Text" value="-" oninput="onAnyChange()">
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon2A">A</label>
+                        <input class="form-control" id="weapon2A" min="0" max="9" name="weapon2A"
+                            oninput="onAnyChange()" type="number" value="4">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon2S">WS/BS</label>
+                        <input class="form-control" id="weapon2S" min="0" max="8" name="weapon2S"
+                            oninput="onAnyChange()" type="number" value="3">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon2Hit">Dmg Hit</label>
+                        <input class="form-control" id="weapon2Hit" min="0" max="6" name="weapon2Hit"
+                            oninput="onAnyChange()" type="number" value="3">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="weapon2Crit">Dmg Crit</label>
+                        <input class="form-control" id="weapon2Crit" min="0" max="6" name="weapon2Crit"
+                            oninput="onAnyChange()" type="number" value="3">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <fieldset class="form-group">
+                        <label for="weapon2Icon">Icon</label>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="weapon2Icon" checked oninput="onAnyChange()">
+                        </div>
+                      </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="imageOffsetX">X offset (&#8596;)</label>
+            <input class="form-control" id="weaponOffsetX" oninput="onAnyChange()" type="number" value="0" />
+        </div>
+
+        <div class="form-group">
+            <label for="imageOffsetY">Y offset (&#8597;)</label>
+            <input class="form-control" id="weaponOffsetY" oninput="onAnyChange()" type="number" value="0" />
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+
+    </div>

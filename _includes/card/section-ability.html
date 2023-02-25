@@ -1,0 +1,49 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingFive">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseEight"
+                aria-expanded="false" aria-controls="fightersCollapseEight">
+                Large Card
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="fightersCollapseEight">
+        <div class="card-body">
+            
+                <div class="card-header" id="fightersHeadingSevenTwo">
+                    <h2 class="h5 mb-0">
+                            Large Card Text
+                    </h2>
+                </div>
+                <div class = "card-body">
+
+                    <input checked class="form-check-input" id="largecardEnabled" oninput="onAnyChange()" type="checkbox">
+                    <label class="form-check-label" for="largecardEnabled">Add to card</label>
+
+                    <div class="form-group">
+                        <label for="cardCost">Card Cost</label>
+                        <input class="form-control" type="text" id="cardCost" name="cardCost" value="" oninput="onAnyChange()">
+                    </div>
+        
+                    <div class="form-group">
+                        <textarea class="form-control" id="largeCardText" name="largeCardText" rows="5"
+                            oninput="onAnyChange()">Body Text</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="largeCardFontSize">Font Size</label>
+                            <input class="form-control" id="largeCardFontSize" min="0" max="100" name="largeCardFontSize"
+                                oninput="onAnyChange()" type="number" value="60">
+                        </div>
+                    </div>
+                </div>
+
+       
+        </div>
+    </div>
+</div>
+

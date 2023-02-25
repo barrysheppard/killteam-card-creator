@@ -1,0 +1,123 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingFive">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseFive"
+                aria-expanded="false" aria-controls="fightersCollapseFive">
+                Operative Profile
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="fightersCollapseFive">
+        <div class="card-body">
+
+
+            <div class="card">
+                <div class="card-header" id="fightersHeadingSevenOne">
+                    <h2 class="h5 mb-0">
+                            Stat Block
+                    </h2>
+                </div>
+                    <div class="card-body">
+                        <div id="statblock">
+                            <div class="mt-4">
+                                <input checked class="form-check-input" id="statblockEnabled" oninput="onAnyChange()" type="checkbox">
+                                <label class="form-check-label" for="statblockEnabled">Add to card</label>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="ma">M</label>
+                                            <input class="form-control" id="ma" min="0" max="9" name="ma"
+                                                oninput="onAnyChange()" type="number" value="4">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="st">APL</label>
+                                            <input class="form-control" id="st" min="0" max="8" name="st"
+                                                oninput="onAnyChange()" type="number" value="3">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="ag">GA</label>
+                                            <input class="form-control" id="ag" min="0" max="6" name="ag"
+                                                oninput="onAnyChange()" type="number" value="3">
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="pa">DF</label>
+                                            <input class="form-control" id="pa" min="0" max="6" name="pa"
+                                                oninput="onAnyChange()" type="number" value="3">
+                                        </div>
+                                    </div>
+                    
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="av">SV</label>
+                                            <input class="form-control" id="av" min="0" max="11" name="av"
+                                                oninput="onAnyChange()" type="number" value="9">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="wounds">W</label>
+                                            <input class="form-control" id="wounds" min="0" max="20" name="wounds"
+                                                oninput="onAnyChange()" type="number" value="12">
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card-header" id="fightersHeadingSevenTwo">
+                    <h2 class="h5 mb-0">
+                            Abilities
+                    </h2>
+                </div>
+<div class = "card-body">
+    <input checked class="form-check-input" id="abilityblockEnabled" oninput="onAnyChange()" type="checkbox">
+    <label class="form-check-label" for="abilityblockEnabled">Add to card</label>
+            <div class="form-group">
+
+                <textarea class="form-control" id="cardText" name="cardText" rows="3"
+                    oninput="onAnyChange()">Body Text</textarea>
+            </div>
+
+        </div>
+            
+        <div class="card-header" id="fightersHeadingSevenOne">
+            <h2 class="h5 mb-0">
+                    Footer
+            </h2>
+        </div>
+                <div class="card-body">
+                    <div id="footerblock">
+                        <input checked class="form-check-input" id="footerblockEnabled" oninput="onAnyChange()" type="checkbox">
+                        <label class="form-check-label" for="footerblockEnabled">Add to card</label>
+                        <div class="mt-4">
+                            
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="footer" name="footer" value="Kill Team Name, Operative Traits" oninput="onAnyChange()">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+       
+        </div>
+    </div>
+</div>
+
+</div>
