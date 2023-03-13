@@ -1,18 +1,18 @@
 {
     "name": "killteam_Card",
-    "imageUrl": "blob:http://127.0.0.1:4000/2672d48d-6c5e-418e-aa45-f5b4b7235e3b",
+    "imageUrl": "blob:http://127.0.0.1:4000/bdab50cd-1eb4-4863-923e-e99a3b94c3a4",
     "imageProperties": {
         "offsetX": -55,
         "offsetY": -14,
         "scalePercent": 100,
         "opacity": 0
     },
-    "factionImageUrl": "blob:http://127.0.0.1:4000/f9cbd01a-73cf-4f3e-b978-499d9d3ce8e2",
+    "factionImageUrl": "blob:http://127.0.0.1:4000/82aefed6-9b62-4a1e-a2ae-4dbb137d1282",
     "factionImageProperties": {
-        "offsetX": 199,
+        "offsetX": 99,
         "offsetY": 0,
-        "scalePercent": 69,
-        "opacity": 1
+        "scalePercent": 38,
+        "opacity": 0.8
     },
     "statblockEnabled": false,
     "weaponblockEnabled": false,
@@ -30,8 +30,8 @@
     "av": "4",
     "wounds": "8",
     "largeCardText": "Each time this operative would perform the Operate Hatch action, no more than one action point needs to be subtracted.\n",
-    "largeCardFontSize": "79",
-    "cardCost": "",
+    "largeCardFontSize": "41",
+    "cardCost": "10",
     "weapon1Name": "Heirloom Autopistol",
     "weapon1Text": "Range (6), Balanced, Lethal 5+",
     "weapon1A": "4",

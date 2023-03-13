@@ -137,26 +137,26 @@ drawCardName = function (value) {
     getContext().fillStyle = 'black';
     getContext().textAlign = "left";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: 45 +4, y: 60+4 });
+    writeScaled(value, { x: 72 +4, y: 85+4 });
     getContext().fillStyle = 'white';
-    writeScaled(value, { x: 45, y: 60 });
+    writeScaled(value, { x: 72, y: 85 });
 }
 
 drawCardCost = function (value) {
-    getContext().font = '120px compacta-std'
+    getContext().font = '100px compacta-std'
     getContext().fillStyle = 'black';
     getContext().textAlign = "right";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: 1250 +4, y: 60+4 });
+    writeScaled(value, { x: 1050 +4, y: 90+4 });
     getContext().fillStyle = 'white';
-    writeScaled(value, { x: 1250, y: 60 });
+    writeScaled(value, { x: 1050, y: 90 });
 }
 
 
 drawFooter = function (value) {
     getContext().drawImage(document.getElementById('frame_3'), 0, 0, getCanvas().width, getCanvas().height);
 
-    getContext().font = 'bold 22px franklin-gothic-book';
+    getContext().font = 'bold 20px franklin-gothic-book';
     getContext().fillStyle = '#eb4a04';
     getContext().textAlign = "left";
     getContext().textBaseline = "middle";
@@ -164,7 +164,7 @@ drawFooter = function (value) {
     // then every part after the first command should be black.
     // so we split by commas
     footerSplit = value.split(',');
-    x_value = 70;
+    x_value = 85;
     for(textIndex in footerSplit){
         if(textIndex > 0){
             getContext().fillStyle = 'Black';
@@ -177,7 +177,7 @@ drawFooter = function (value) {
             textValue = footerSplit[textIndex];
         }
         // Write the actual text
-        writeScaled(textValue, { x: x_value, y: 840 });
+        writeScaled(textValue, { x: x_value, y: 735 });
         // Adjust the x variable by the size of the text
         x_value = x_value + getTextWidth(textValue, getContext().font);
     }
@@ -196,15 +196,15 @@ drawWeapons = function(fighterData){
     }
 
     if(fighterData.weapon1Icon){
-        getContext().drawImage(document.getElementById('melee'), xValue+110, yValue+670, 60, 60);
+        getContext().drawImage(document.getElementById('melee'), xValue+90, yValue+370, 60, 60);
     } else {
-        getContext().drawImage(document.getElementById('ranged'), xValue+110, yValue+670, 60, 60);
+        getContext().drawImage(document.getElementById('ranged'), xValue+90, yValue+370, 60, 60);
     }
     if(fighterData.weaponblock2Enabled){
         if(fighterData.weapon2Icon){
-            getContext().drawImage(document.getElementById('melee'), xValue+110, yValue+860, 60, 60);
+            getContext().drawImage(document.getElementById('melee'), xValue+90, yValue+470, 60, 60);
         } else {
-            getContext().drawImage(document.getElementById('ranged'), xValue+110, yValue+860, 60, 60);
+            getContext().drawImage(document.getElementById('ranged'), xValue+90, yValue+470, 60, 60);
         }
     }
     
@@ -223,60 +223,59 @@ drawWeapons = function(fighterData){
     //writeScaled(textValue, { x: 70+1, y: 360 });
     //writeScaled(textValue, { x: 70, y: 360+1});
 
+
     getContext().fillStyle = 'black';
-    writeValue(getContext(), textValue, { x: xValue + 110, y: yValue + 600 });
+    writeValue(getContext(), textValue, { x: xValue + 90, y: yValue + 330 });
 
     // Weapon stats header
     getContext().fillStyle = 'black';
     getContext().font = '60px compacta-std';
     textValue = "A    BS/WS    D";
-    writeValue(getContext(), textValue, { x: xValue + 800, y: yValue + 590 });
+    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 330 });
     
     // Weapon Numbers
     getContext().font = 'bold 36px franklin-gothic-book';
     textValue = fighterData.weapon1A + "       " + fighterData.weapon1S + "+     " + fighterData.weapon1Hit + "/" + fighterData.weapon1Crit;
-    writeValue(getContext(), textValue, { x: xValue + 800, y: yValue + 700 });
+    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 390 });
     if(fighterData.weaponblock2Enabled){
         textValue = fighterData.weapon2A + "       " + fighterData.weapon2S + "+     " + fighterData.weapon2Hit + "/" + fighterData.weapon2Crit;
-        writeValue(getContext(), textValue, { x: xValue + 800, y: yValue + 890 });
+        writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 490 });
     }
 
     // Weapon Names
-    getContext().font = 'bold 36px franklin-gothic-book';
+    getContext().font = 'bold 32px franklin-gothic-book';
     textValue = fighterData.weapon1Name;
-    writeValue(getContext(), textValue, { x: xValue + 200, y: yValue + 700 });
+    writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 390 });
     if(fighterData.weaponblock2Enabled){
         textValue = fighterData.weapon2Name;
-        writeValue(getContext(), textValue, { x: xValue + 200, y: yValue + 890 });
+        writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 490 });
     }
 
     // Weapon subtext
     getContext().font = '28px franklin-gothic-book';
     textValue = fighterData.weapon1Text;
-    writeValue(getContext(), textValue, { x: xValue + 200, y: yValue + 760 });
+    writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 430 });
     if(fighterData.weaponblock2Enabled){
         textValue = fighterData.weapon2Text;
-        writeValue(getContext(), textValue, { x: xValue + 200, y: yValue + 950 });
+        writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 525 });
     }    
 }
 
 drawCardText = function (value) {
 
-    getContext().font = '50px franklin-gothic-book';
+    getContext().font = '32px franklin-gothic-book';
     getContext().fillStyle = 'black';
     getContext().textAlign = "left";
     getContext().textBaseline = "middle";
 
-    lineHeight = 60;
-    fitWidth = 1100;
-
-    getContext().font = '50px franklin-gothic-book';
+    lineHeight = 32;
+    fitWidth = 575;
 
     // Trying to get a bold and italic check going
     text_array = (splitWordWrap(getContext(), value, fitWidth));
 
     for (line in text_array) {       
-        getContext().fillText(text_array[line], 120, 1160 + (line * lineHeight));
+        getContext().fillText(text_array[line], 90, 640 + (line * lineHeight));
     }
 
     
@@ -506,7 +505,7 @@ function drawAbilities(fighterData){
     getContext().font = 'bold 36px franklin-gothic-book';
     getContext().fillStyle = 'Black';
     textValue = "Abilities: ";
-    writeScaled(textValue, { x: 70, y: 655 });
+    writeScaled(textValue, { x: 90, y: 595 });
     drawCardText(fighterData.cardText);
 
 
@@ -516,14 +515,14 @@ function drawLargeCard(fighterData){
     
     getContext().drawImage(document.getElementById('frame_4'), 0, 0, getCanvas().width, getCanvas().height);
 
-    getContext().font = '60px franklin-gothic-book';
+    getContext().font = '32px franklin-gothic-book';
     getContext().fillStyle = 'black';
     getContext().textAlign = "left";
     getContext().textBaseline = "middle";
 
     font_size = fighterData.largeCardFontSize;
     lineHeight = font_size;
-    fitWidth = 1100;
+    fitWidth = 580;
     getContext().font = font_size + 'px franklin-gothic-book';
 
     // Trying to get a bold and italic check going
@@ -535,12 +534,12 @@ function drawLargeCard(fighterData){
             printText = text_array[line].replace("**", '');
             getContext().fillStyle = '#eb4a04';
             getContext().font = 'bold ' + font_size + 'px franklin-gothic-book';;
-            getContext().fillText(printText, 120, 250 + (line * lineHeight));
+            getContext().fillText(printText, 90, 160 + (line * lineHeight));
             getContext().font = font_size + 'px franklin-gothic-book';
             getContext().fillStyle = 'black';
         } else {
             getContext().font = font_size + 'px franklin-gothic-book';
-            getContext().fillText(text_array[line], 120, 250 + (line * lineHeight));
+            getContext().fillText(text_array[line], 90, 160 + (line * lineHeight));
         }
     }
     drawCardCost(fighterData.cardCost);
@@ -550,18 +549,18 @@ function drawLargeCard(fighterData){
 function drawStatsFrame(fighterData){
     getContext().drawImage(document.getElementById('frame_1'), 0, 0, getCanvas().width, getCanvas().height);
     // MA
-    drawNumber("M:" + fighterData.ma, 80, 160, false);
-    getContext().drawImage(document.getElementById('range_circle'), 280, 220, 100, 100);
+    drawNumber("M:" + fighterData.ma, 90, 170, false);
+    getContext().drawImage(document.getElementById('range_circle'), 170, 135, 70, 70);
     // ST
-    drawNumber("APL:" + fighterData.st, 270, 160, false);
+    drawNumber("APL:" + fighterData.st, 250, 170, false);
     // AG
-    drawNumber(" GA:" + fighterData.ag, 420, 160, true);
+    drawNumber(" GA:" + fighterData.ag, 380, 170, true);
     // PA
-    drawNumber(" DF:" + fighterData.pa, 60, 260, true);
+    drawNumber(" DF:" + fighterData.pa, 80, 250, true);
     //AV
-    drawNumber("SV:" + fighterData.av + "+", 210, 260, true);
+    drawNumber("SV:" + fighterData.av + "+", 210, 250, true);
     // MADE UP ONE
-    drawNumber("W:" + fighterData.wounds, 380, 260, true);
+    drawNumber("W:" + fighterData.wounds, 350, 250, true);
 }
 
 drawFrames = function (fighterData) {
@@ -583,6 +582,8 @@ drawFrames = function (fighterData) {
     if(fighterData.weaponblockEnabled){
         drawWeapons(fighterData);
     };
+    getContext().drawImage(document.getElementById('border'), 0, 0, getCanvas().width, getCanvas().height);  
+
  }
 
 
@@ -629,7 +630,7 @@ render = function (fighterData) {
 
 function drawNumber(num,x, y, plus){
 
-        getContext().font = '90px compacta-std'
+        getContext().font = '80px compacta-std'
     
     getContext().fillStyle = 'black';
     getContext().textAlign = "left";

@@ -1,17 +1,17 @@
 {
     "name": "killteam_Card",
-    "imageUrl": "blob:http://127.0.0.1:4000/7d28dad2-0e2e-4fe2-ba09-8fcdf80a6a34",
+    "imageUrl": "blob:http://127.0.0.1:4000/7b556435-0768-4881-a45d-bd94e1c44f79",
     "imageProperties": {
-        "offsetX": -118,
-        "offsetY": -171,
-        "scalePercent": 160,
+        "offsetX": -185,
+        "offsetY": -101,
+        "scalePercent": 83,
         "opacity": 1
     },
-    "factionImageUrl": "blob:http://127.0.0.1:4000/8ab3fc3f-9f0a-4791-94ba-deb2bfee3f5b",
+    "factionImageUrl": "blob:http://127.0.0.1:4000/446514b3-4fa0-4a7f-9c82-7f5e9c0febf0",
     "factionImageProperties": {
-        "offsetX": 199,
-        "offsetY": 0,
-        "scalePercent": 69,
+        "offsetX": 99,
+        "offsetY": 26,
+        "scalePercent": 36,
         "opacity": 1
     },
     "statblockEnabled": true,
