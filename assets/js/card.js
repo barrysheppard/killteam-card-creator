@@ -470,6 +470,7 @@ function readControls() {
     data.footerblockEnabled = document.getElementById("footerblockEnabled").checked;
     data.abilityblockEnabled = document.getElementById("abilityblockEnabled").checked;
     data.largecardEnabled = document.getElementById("largecardEnabled").checked;
+    data.largerCardEnabled = document.getElementById("largerCardEnabled").checked;
     
     data.ma = document.getElementById("ma").value;
     data.st = document.getElementById("st").value;
@@ -513,7 +514,14 @@ function drawAbilities(fighterData){
 
 function drawLargeCard(fighterData){
     
-    getContext().drawImage(document.getElementById('frame_4'), 0, 0, getCanvas().width, getCanvas().height);
+    if(fighterData.largerCardEnabled){
+        getContext().drawImage(document.getElementById('frame_4b'), 0, 0, getCanvas().width, getCanvas().height);    
+        fitWidth = 880;
+    } else {
+        getContext().drawImage(document.getElementById('frame_4'), 0, 0, getCanvas().width, getCanvas().height);
+        fitWidth = 580;
+    }
+    
 
     getContext().font = '32px franklin-gothic-book';
     getContext().fillStyle = 'black';
@@ -522,7 +530,6 @@ function drawLargeCard(fighterData){
 
     font_size = fighterData.largeCardFontSize;
     lineHeight = font_size;
-    fitWidth = 580;
     getContext().font = font_size + 'px franklin-gothic-book';
 
     // Trying to get a bold and italic check going
@@ -687,6 +694,7 @@ async function writeControls(fighterData) {
     $("#footerblockEnabled")[0].checked = fighterData.footerblockEnabled;
     $("#abilityblockEnabled")[0].checked = fighterData.abilityblockEnabled;
     $("#largecardEnabled")[0].checked = fighterData.largecardEnabled;
+    $("#largerCardEnabled")[0].checked = fighterData.largerCardEnabled;
     
     $("#ma")[0].value = fighterData.ma;
     $("#st")[0].value = fighterData.st;
@@ -731,7 +739,7 @@ function defaultFighterData() {
     fighterData.cardText = "Body Text";
     fighterData.cardCost = " ";
     fighterData.largeCardText = "Body Text";
-    fighterData.largeCardFontSize = 60;
+    fighterData.largeCardFontSize = 40;
     
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
@@ -745,6 +753,7 @@ function defaultFighterData() {
     fighterData.footerblockEnabled = true;
     fighterData.abilityblockEnabled = true;
     fighterData.largecardEnabled = false;
+    fighterData.largerCardEnabled = false;
 
     fighterData.ma = 4;
     fighterData.st = 4;
@@ -976,7 +985,7 @@ async function onSaveClicked() {
     var exportObj = JSON.stringify(data, ['name', 
     'imageUrl', 'imageProperties', 'offsetX', 'offsetY','scalePercent', 'opacity',
     'factionImageUrl', 'factionImageProperties', 'factionOffsetX', 'factionOffsetY','factionScalePercent', 'factionOpacity',
-    'statblockEnabled', 'weaponblockEnabled', 'weaponblock2Enabled', 'footerblockEnabled', 'abilityblockEnabled', 'largecardEnabled',
+    'statblockEnabled', 'weaponblockEnabled', 'weaponblock2Enabled', 'footerblockEnabled', 'abilityblockEnabled', 'largecardEnabled', 'largerCardEnabled',
     'cardName', 'cardText', 'footer', 'ma', 'st', 'ag', 'pa', 'av', 'wounds', 'largeCardText', 'largeCardFontSize', 'cardCost',
     'weapon1Name', 'weapon1Text', 'weapon1A', 'weapon1S', 'weapon1Hit', 'weapon1Crit', 'weapon1Icon',
     'weapon2Name', 'weapon2Text', 'weapon2A', 'weapon2S', 'weapon2Hit', 'weapon2Crit', 'weapon2Icon', 'weaponOffsetX', 'weaponOffsetY',
