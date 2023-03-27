@@ -589,8 +589,9 @@ drawFrames = function (fighterData) {
     if(fighterData.weaponblockEnabled){
         drawWeapons(fighterData);
     };
-    getContext().drawImage(document.getElementById('border'), 0, 0, getCanvas().width, getCanvas().height);  
-
+    if(!document.getElementById("removeBorder").checked){
+        getContext().drawImage(document.getElementById('border'), 0, 0, getCanvas().width, getCanvas().height);
+    }
  }
 
 
