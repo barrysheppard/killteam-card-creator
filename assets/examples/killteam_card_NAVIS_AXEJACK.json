@@ -9,7 +9,7 @@
     },
     "factionImageUrl": "blob:http://127.0.0.1:4000/446514b3-4fa0-4a7f-9c82-7f5e9c0febf0",
     "factionImageProperties": {
-        "offsetX": 99,
+        "offsetX": 115,
         "offsetY": 26,
         "scalePercent": 36,
         "opacity": 1

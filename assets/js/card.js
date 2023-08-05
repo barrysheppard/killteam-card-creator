@@ -137,9 +137,9 @@ drawCardName = function (value) {
     getContext().fillStyle = 'black';
     getContext().textAlign = "left";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: 72 +4, y: 85+4 });
+    writeScaled(value, { x: 72 +4, y: 100+4 });
     getContext().fillStyle = 'white';
-    writeScaled(value, { x: 72, y: 85 });
+    writeScaled(value, { x: 72, y: 100 });
 }
 
 drawCardCost = function (value) {
@@ -147,9 +147,9 @@ drawCardCost = function (value) {
     getContext().fillStyle = 'black';
     getContext().textAlign = "right";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: 1050 +4, y: 90+4 });
+    writeScaled(value, { x: 1050 +4, y: 105+4 });
     getContext().fillStyle = 'white';
-    writeScaled(value, { x: 1050, y: 90 });
+    writeScaled(value, { x: 1050, y: 105 });
 }
 
 
@@ -189,22 +189,22 @@ drawWeapons = function(fighterData){
     xValue = fighterData.weaponOffsetX;
     yValue = fighterData.weaponOffsetY;
 
-    getContext().drawImage(document.getElementById('frame_2a'), xValue + 0, yValue + 0, getCanvas().width, getCanvas().height);
+    getContext().drawImage(document.getElementById('frame_2a'), xValue + 0, yValue + 10, getCanvas().width, getCanvas().height);
     
     if(fighterData.weaponblock2Enabled){
-        getContext().drawImage(document.getElementById('frame_2b'), xValue + 0, yValue + 0, getCanvas().width, getCanvas().height);
+        getContext().drawImage(document.getElementById('frame_2b'), xValue + 0, yValue + 10, getCanvas().width, getCanvas().height);
     }
 
     if(fighterData.weapon1Icon){
-        getContext().drawImage(document.getElementById('melee'), xValue+90, yValue+370, 60, 60);
+        getContext().drawImage(document.getElementById('melee'), xValue+90, yValue+380, 60, 60);
     } else {
-        getContext().drawImage(document.getElementById('ranged'), xValue+90, yValue+370, 60, 60);
+        getContext().drawImage(document.getElementById('ranged'), xValue+90, yValue+380, 60, 60);
     }
     if(fighterData.weaponblock2Enabled){
         if(fighterData.weapon2Icon){
-            getContext().drawImage(document.getElementById('melee'), xValue+90, yValue+470, 60, 60);
+            getContext().drawImage(document.getElementById('melee'), xValue+90, yValue+480, 60, 60);
         } else {
-            getContext().drawImage(document.getElementById('ranged'), xValue+90, yValue+470, 60, 60);
+            getContext().drawImage(document.getElementById('ranged'), xValue+90, yValue+480, 60, 60);
         }
     }
     
@@ -225,39 +225,39 @@ drawWeapons = function(fighterData){
 
 
     getContext().fillStyle = 'black';
-    writeValue(getContext(), textValue, { x: xValue + 90, y: yValue + 330 });
+    writeValue(getContext(), textValue, { x: xValue + 90, y: yValue + 340 });
 
     // Weapon stats header
     getContext().fillStyle = 'black';
     getContext().font = '60px compacta-std';
     textValue = "A    BS/WS    D";
-    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 330 });
+    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 340 });
     
     // Weapon Numbers
     getContext().font = 'bold 36px franklin-gothic-book';
     textValue = fighterData.weapon1A + "       " + fighterData.weapon1S + "+     " + fighterData.weapon1Hit + "/" + fighterData.weapon1Crit;
-    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 390 });
+    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 400 });
     if(fighterData.weaponblock2Enabled){
         textValue = fighterData.weapon2A + "       " + fighterData.weapon2S + "+     " + fighterData.weapon2Hit + "/" + fighterData.weapon2Crit;
-        writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 490 });
+        writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 500 });
     }
 
     // Weapon Names
     getContext().font = 'bold 32px franklin-gothic-book';
     textValue = fighterData.weapon1Name;
-    writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 390 });
+    writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 400 });
     if(fighterData.weaponblock2Enabled){
         textValue = fighterData.weapon2Name;
-        writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 490 });
+        writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 500 });
     }
 
     // Weapon subtext
     getContext().font = '28px franklin-gothic-book';
     textValue = fighterData.weapon1Text;
-    writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 430 });
+    writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 440 });
     if(fighterData.weaponblock2Enabled){
         textValue = fighterData.weapon2Text;
-        writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 525 });
+        writeValue(getContext(), textValue, { x: xValue + 155, y: yValue + 535 });
     }    
 }
 
@@ -275,7 +275,7 @@ drawCardText = function (value) {
     text_array = (splitWordWrap(getContext(), value, fitWidth));
 
     for (line in text_array) {       
-        getContext().fillText(text_array[line], 90, 640 + (line * lineHeight));
+        getContext().fillText(text_array[line], 90, 650 + (line * lineHeight));
     }
 
     
@@ -502,11 +502,11 @@ function readControls() {
 
 function drawAbilities(fighterData){
     
-    getContext().drawImage(document.getElementById('frame_5'), 0, 0, getCanvas().width, getCanvas().height);
+    getContext().drawImage(document.getElementById('frame_5'), 0, 8, getCanvas().width, getCanvas().height);
     getContext().font = 'bold 36px franklin-gothic-book';
     getContext().fillStyle = 'Black';
     textValue = "Abilities: ";
-    writeScaled(textValue, { x: 90, y: 595 });
+    writeScaled(textValue, { x: 90, y: 604 });
     drawCardText(fighterData.cardText);
 
 
@@ -515,11 +515,11 @@ function drawAbilities(fighterData){
 function drawLargeCard(fighterData){
     
     if(fighterData.largerCardEnabled){
-        getContext().drawImage(document.getElementById('frame_4b'), 0, 0, getCanvas().width, getCanvas().height);    
-        fitWidth = 880;
+        getContext().drawImage(document.getElementById('frame_4b'), 0, 10, getCanvas().width, getCanvas().height);    
+        fitWidth = 860;
     } else {
-        getContext().drawImage(document.getElementById('frame_4'), 0, 0, getCanvas().width, getCanvas().height);
-        fitWidth = 580;
+        getContext().drawImage(document.getElementById('frame_4'), 0, 10, getCanvas().width, getCanvas().height);
+        fitWidth = 560;
     }
     
 
@@ -541,12 +541,12 @@ function drawLargeCard(fighterData){
             printText = text_array[line].replace("**", '');
             getContext().fillStyle = '#eb4a04';
             getContext().font = 'bold ' + font_size + 'px franklin-gothic-book';;
-            getContext().fillText(printText, 90, 160 + (line * lineHeight));
+            getContext().fillText(printText, 90, 170 + (line * lineHeight));
             getContext().font = font_size + 'px franklin-gothic-book';
             getContext().fillStyle = 'black';
         } else {
             getContext().font = font_size + 'px franklin-gothic-book';
-            getContext().fillText(text_array[line], 90, 160 + (line * lineHeight));
+            getContext().fillText(text_array[line], 90, 170 + (line * lineHeight));
         }
     }
     drawCardCost(fighterData.cardCost);
@@ -554,20 +554,20 @@ function drawLargeCard(fighterData){
 
 
 function drawStatsFrame(fighterData){
-    getContext().drawImage(document.getElementById('frame_1'), 0, 0, getCanvas().width, getCanvas().height);
+    getContext().drawImage(document.getElementById('frame_1'), 0, 13, getCanvas().width, getCanvas().height);
     // MA
-    drawNumber("M:" + fighterData.ma, 90, 170, false);
-    getContext().drawImage(document.getElementById('range_circle'), 170, 135, 70, 70);
+    drawNumber("M:" + fighterData.ma, 90, 170+13, false);
+    getContext().drawImage(document.getElementById('range_circle'), 170, 135+13, 70, 70);
     // ST
-    drawNumber("APL:" + fighterData.st, 250, 170, false);
+    drawNumber("APL:" + fighterData.st, 250, 170+13, false);
     // AG
-    drawNumber(" GA:" + fighterData.ag, 380, 170, true);
+    drawNumber(" GA:" + fighterData.ag, 380, 170+13, true);
     // PA
-    drawNumber(" DF:" + fighterData.pa, 80, 250, true);
+    drawNumber(" DF:" + fighterData.pa, 80, 250+13, true);
     //AV
-    drawNumber("SV:" + fighterData.av + "+", 210, 250, true);
+    drawNumber("SV:" + fighterData.av + "+", 210, 250+13, true);
     // MADE UP ONE
-    drawNumber("W:" + fighterData.wounds, 350, 250, true);
+    drawNumber("W:" + fighterData.wounds, 350, 250+13, true);
 }
 
 drawFrames = function (fighterData) {
