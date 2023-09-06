@@ -535,6 +535,7 @@ function drawLargeCard(fighterData){
     // Trying to get a bold and italic check going
     text_array = (splitWordWrap(getContext(), fighterData.largeCardText, fitWidth));
 
+/* Original code
     for (line in text_array) {
         
         if (text_array[line].startsWith("**")) {
@@ -549,8 +550,112 @@ function drawLargeCard(fighterData){
             getContext().fillText(text_array[line], 90, 170 + (line * lineHeight));
         }
     }
+*/
+
+// updated code
+let xPosition = 90; // Initialize x-coordinate position
+
+for (line in text_array) {
+    const text = text_array[line];
+    let startIndex = 0;
+
+    while (startIndex < text.length) {
+        const start = text.indexOf("**", startIndex);
+
+        if (start === -1) {
+            // No more ** sequences found in this line, print the rest in black
+            getContext().font = font_size + 'px franklin-gothic-book';
+            getContext().fillStyle = 'black';
+            const printText = text.substring(startIndex);
+            const textWidth = getContext().measureText(printText).width;
+            getContext().fillText(printText, xPosition, 170 + (line * lineHeight));
+            xPosition += textWidth; // Update the x-coordinate position
+            break;
+        }
+
+        if (start > startIndex) {
+            // Print text before the ** in black
+            getContext().font = font_size + 'px franklin-gothic-book';
+            getContext().fillStyle = 'black';
+            const printText = text.substring(startIndex, start);
+            const textWidth = getContext().measureText(printText).width;
+            getContext().fillText(printText, xPosition, 170 + (line * lineHeight));
+            xPosition += textWidth; // Update the x-coordinate position
+        }
+
+        const end = text.indexOf("**", start + 2);
+
+        if (end === -1) {
+            // If no closing ** found, print the rest in black
+            getContext().font = font_size + 'px franklin-gothic-book';
+            getContext().fillStyle = 'black';
+            const printText = text.substring(start);
+            const textWidth = getContext().measureText(printText).width;
+            getContext().fillText(printText, xPosition, 170 + (line * lineHeight));
+            xPosition += textWidth; // Update the x-coordinate position
+            break;
+        }
+
+        // Print text between ** in special format
+        getContext().fillStyle = '#eb4a04';
+        getContext().font = 'bold ' + font_size + 'px franklin-gothic-book';
+        const printTextBetween = text.substring(start + 2, end);
+        const textWidthBetween = getContext().measureText(printTextBetween).width;
+        getContext().fillText(printTextBetween, xPosition, 170 + (line * lineHeight));
+        getContext().font = font_size + 'px franklin-gothic-book';
+        xPosition += textWidthBetween; // Update the x-coordinate position
+
+        startIndex = end + 2;
+    }
+
+    // Reset x-coordinate position for the next line
+    xPosition = 90;
+}
+
+
+
+
+// New code ends here
+
     drawCardCost(fighterData.cardCost);
 }
+
+
+function drawTriangle(x, y, size) {
+    getContext().fillStyle = 'blue';
+    getContext().beginPath();
+    getContext().moveTo(x, y - size / 2);
+    getContext().lineTo(x + size / 2, y + size / 2);
+    getContext().lineTo(x - size / 2, y + size / 2);
+    getContext().fill();
+}
+
+function drawCircle(x, y, radius) {
+    getContext().fillStyle = 'green';
+    getContext().beginPath();
+    getContext().arc(x, y, radius, 0, 2 * Math.PI);
+    getContext().fill();
+}
+
+function drawSquare(x, y, size) {
+    getContext().fillStyle = 'yellow';
+    getContext().fillRect(x - size / 2, y, size, size);
+}
+
+function drawPentagon(x, y, size) {
+    getContext().fillStyle = 'purple';
+    getContext().beginPath();
+    const angle = (Math.PI * 2) / 5;
+    getContext().moveTo(x + size * Math.cos(-Math.PI / 2), y + size * Math.sin(-Math.PI / 2));
+    for (let i = 1; i <= 5; i++) {
+        const xPos = x + size * Math.cos(i * angle - Math.PI / 2);
+        const yPos = y + size * Math.sin(i * angle - Math.PI / 2);
+        getContext().lineTo(xPos, yPos);
+    }
+    getContext().closePath();
+    getContext().fill();
+}
+
 
 
 function drawStatsFrame(fighterData){
