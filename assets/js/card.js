@@ -612,8 +612,7 @@ for (line in text_array) {
     xPosition = 90;
 }
 
-
-
+drawTriangle(200,200,30)
 
 // New code ends here
 
@@ -622,7 +621,7 @@ for (line in text_array) {
 
 
 function drawTriangle(x, y, size) {
-    getContext().fillStyle = 'blue';
+    getContext().fillStyle = 'grey';
     getContext().beginPath();
     getContext().moveTo(x, y - size / 2);
     getContext().lineTo(x + size / 2, y + size / 2);
@@ -631,19 +630,19 @@ function drawTriangle(x, y, size) {
 }
 
 function drawCircle(x, y, radius) {
-    getContext().fillStyle = 'green';
+    getContext().fillStyle = 'white';
     getContext().beginPath();
     getContext().arc(x, y, radius, 0, 2 * Math.PI);
     getContext().fill();
 }
 
 function drawSquare(x, y, size) {
-    getContext().fillStyle = 'yellow';
+    getContext().fillStyle = 'blue';
     getContext().fillRect(x - size / 2, y, size, size);
 }
 
 function drawPentagon(x, y, size) {
-    getContext().fillStyle = 'purple';
+    getContext().fillStyle = 'red';
     getContext().beginPath();
     const angle = (Math.PI * 2) / 5;
     getContext().moveTo(x + size * Math.cos(-Math.PI / 2), y + size * Math.sin(-Math.PI / 2));
@@ -661,12 +660,12 @@ function drawPentagon(x, y, size) {
 function drawStatsFrame(fighterData){
     getContext().drawImage(document.getElementById('frame_1'), 0, 13, getCanvas().width, getCanvas().height);
     // MA
-    drawNumber("M:" + fighterData.ma, 90, 170+13, false);
-    getContext().drawImage(document.getElementById('range_circle'), 170, 135+13, 70, 70);
+    drawNumber("M:" + fighterData.ma + "\"", 90, 170+13, false);
+    //getContext().drawImage(document.getElementById('range_circle'), 170, 135+13, 70, 70);
     // ST
-    drawNumber("APL:" + fighterData.st, 250, 170+13, false);
+    drawNumber("APL:" + fighterData.st, 210, 170+13, false);
     // AG
-    drawNumber(" GA:" + fighterData.ag, 380, 170+13, true);
+    drawNumber(" GA:" + fighterData.ag, 340, 170+13, true);
     // PA
     drawNumber(" DF:" + fighterData.pa, 80, 250+13, true);
     //AV
