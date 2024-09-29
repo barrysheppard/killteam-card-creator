@@ -612,7 +612,7 @@ for (line in text_array) {
     xPosition = 90;
 }
 
-drawTriangle(200,200,30)
+//drawTriangle(200,200,30)
 
 // New code ends here
 
