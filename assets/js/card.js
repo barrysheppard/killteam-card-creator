@@ -187,7 +187,7 @@ drawFooter = function (value) {
 drawWeapons = function(fighterData){
 
     xValue = fighterData.weaponOffsetX;
-    yValue = fighterData.weaponOffsetY;
+    yValue = fighterData.weaponOffsetY -75;
 
     getContext().drawImage(document.getElementById('frame_2a'), xValue + 0, yValue + 10, getCanvas().width, getCanvas().height);
     
@@ -230,8 +230,8 @@ drawWeapons = function(fighterData){
     // Weapon stats header
     getContext().fillStyle = 'black';
     getContext().font = '60px compacta-std';
-    textValue = "A    BS/WS    D";
-    writeValue(getContext(), textValue, { x: xValue + 400, y: yValue + 340 });
+    textValue = "ATK    HIT     DMG";
+    writeValue(getContext(), textValue, { x: xValue + 390, y: yValue + 340 });
     
     // Weapon Numbers
     getContext().font = 'bold 36px franklin-gothic-book';
@@ -275,7 +275,7 @@ drawCardText = function (value) {
     text_array = (splitWordWrap(getContext(), value, fitWidth));
 
     for (line in text_array) {       
-        getContext().fillText(text_array[line], 90, 650 + (line * lineHeight));
+        getContext().fillText(text_array[line], 90, 590 + (line * lineHeight));
     }
 
     
@@ -506,7 +506,7 @@ function drawAbilities(fighterData){
     getContext().font = 'bold 36px franklin-gothic-book';
     getContext().fillStyle = 'Black';
     textValue = "Abilities: ";
-    writeScaled(textValue, { x: 90, y: 604 });
+    writeScaled(textValue, { x: 90, y: 540 });
     drawCardText(fighterData.cardText);
 
 
@@ -660,18 +660,10 @@ function drawPentagon(x, y, size) {
 function drawStatsFrame(fighterData){
     getContext().drawImage(document.getElementById('frame_1'), 0, 13, getCanvas().width, getCanvas().height);
     // MA
-    drawNumber("M:" + fighterData.ma + "\"", 90, 170+13, false);
-    //getContext().drawImage(document.getElementById('range_circle'), 170, 135+13, 70, 70);
-    // ST
-    drawNumber("APL:" + fighterData.st, 210, 170+13, false);
-    // AG
-    drawNumber(" GA:" + fighterData.ag, 340, 170+13, true);
-    // PA
-    drawNumber(" DF:" + fighterData.pa, 80, 250+13, true);
-    //AV
-    drawNumber("SV:" + fighterData.av + "+", 210, 250+13, true);
-    // MADE UP ONE
-    drawNumber("W:" + fighterData.wounds, 350, 250+13, true);
+    drawNumber("APL:" + fighterData.st, 100, 170+13, false);
+    drawNumber("M:" + fighterData.ma + "\"", 100 +150, 170+13, false);
+    drawNumber("SV:" + fighterData.av + "+", 100 +150 *2, 170+13, true);
+    drawNumber("W:" + fighterData.wounds, 100 +150*3, 170+13, true);
 }
 
 drawFrames = function (fighterData) {
