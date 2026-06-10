@@ -478,6 +478,7 @@ function readControls() {
     data.pa = document.getElementById("pa").value;
     data.av = document.getElementById("av").value;
     data.wounds = document.getElementById("wounds").value;
+    data.pts = document.getElementById("pts").value; // Added
     
     data.weapon1Name = document.getElementById("weapon1Name").value;
     data.weapon1Text = document.getElementById("weapon1Text").value;
@@ -666,8 +667,51 @@ function drawStatsFrame(fighterData){
     drawNumber("W:" + fighterData.wounds, 100 +150*3, 170+13, true);
 }
 
+function drawPointsCircle(fighterData) {
+    var ptsValue = parseInt(fighterData.pts) || 0;
+    
+    // Only render if pts is anything but 0
+    if (ptsValue > 0) {
+        ctx = getContext();
+        
+        // Define placement on the top-right of the card
+        // (Adjust x: 1120, y: 105 to perfectly line up with your card design)
+        var badgePos = { x: 1020, y: 105 }; 
+        var radius = 35;
+        
+        // 1. Scale coordinates for high-res canvas rendering
+        var scaledPos = scalePixelPosition(badgePos);
+        var scale = getScalingFactor(getCanvas(), getBackgroundImage());
+        
+        ctx.save();
+        ctx.scale(scale.x, scale.y);
+        
+        // 2. Draw the outer accent/border circle (Black shadow/rim)
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.arc(badgePos.x, badgePos.y, radius + 3, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // 3. Draw the inner circle badge (White background or change to '#eb4a04' for orange!)
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(badgePos.x, badgePos.y, radius, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // 4. Draw the Points Number centered perfectly inside
+        ctx.font = 'bold 42px compacta-std';
+        ctx.fillStyle = 'black';
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(ptsValue, badgePos.x, badgePos.y + 2); // subtle y offset for font baseline alignment
+        
+        ctx.restore();
+    }
+}
+
 drawFrames = function (fighterData) {
     drawCardName(fighterData.cardName);
+    // Render the points circle badge if active
     if(fighterData.largecardEnabled){
         drawLargeCard(fighterData);
     };
@@ -688,6 +732,8 @@ drawFrames = function (fighterData) {
     if(!document.getElementById("removeBorder").checked){
         getContext().drawImage(document.getElementById('border'), 0, 0, getCanvas().width, getCanvas().height);
     }
+        drawPointsCircle(fighterData);
+
  }
 
 
@@ -799,6 +845,7 @@ async function writeControls(fighterData) {
     $("#pa")[0].value = fighterData.pa;
     $("#av")[0].value = fighterData.av;
     $("#wounds")[0].value = fighterData.wounds;
+    $("#pts")[0].value = fighterData.pts; // Added
     $("#cardText")[0].value = fighterData.cardText;
     $("#cardCost")[0].value = fighterData.cardCost;
     $("#largeCardText")[0].value = fighterData.largeCardText;
@@ -858,6 +905,7 @@ function defaultFighterData() {
     fighterData.pa = 3;
     fighterData.av = 9;
     fighterData.wounds = 12;
+    fighterData.pts = 0; // Added
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
 
@@ -1083,7 +1131,7 @@ async function onSaveClicked() {
     'imageUrl', 'imageProperties', 'offsetX', 'offsetY','scalePercent', 'opacity',
     'factionImageUrl', 'factionImageProperties', 'factionOffsetX', 'factionOffsetY','factionScalePercent', 'factionOpacity',
     'statblockEnabled', 'weaponblockEnabled', 'weaponblock2Enabled', 'footerblockEnabled', 'abilityblockEnabled', 'largecardEnabled', 'largerCardEnabled',
-    'cardName', 'cardText', 'footer', 'ma', 'st', 'ag', 'pa', 'av', 'wounds', 'largeCardText', 'largeCardFontSize', 'cardCost',
+    'cardName', 'cardText', 'footer', 'ma', 'st', 'ag', 'pa', 'av', 'wounds', 'pts', 'largeCardText', 'largeCardFontSize', 'cardCost',
     'weapon1Name', 'weapon1Text', 'weapon1A', 'weapon1S', 'weapon1Hit', 'weapon1Crit', 'weapon1Icon',
     'weapon2Name', 'weapon2Text', 'weapon2A', 'weapon2S', 'weapon2Hit', 'weapon2Crit', 'weapon2Icon', 'weaponOffsetX', 'weaponOffsetY',
     'base64Image', 'base64FactionImage'], 4);
